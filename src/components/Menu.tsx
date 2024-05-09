@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Menu = () => {
 	return (
@@ -12,14 +12,14 @@ const Menu = () => {
 				<div className="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
 					<ul className="nav flex-column">
 						<li className="nav-item">
-							<Link to={"/"}className="nav-link d-flex align-items-center gap-2 active">
+							<NavLink to={"/"} className="nav-link">
 								Dashboard
-							</Link>
+							</NavLink>
 						</li>
 						<li className="nav-item">
-							<Link to={"/users"}className="nav-link d-flex align-items-center gap-2 active">
+							<NavLink to={"/users"} className="nav-link">
 								Users
-							</Link>
+							</NavLink>
 						</li>
 					</ul>
 				</div>

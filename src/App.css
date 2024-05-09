@@ -22,10 +22,13 @@
 .sidebar .nav-link {
   font-size: .875rem;
   font-weight: 500;
+
 }
 
 .sidebar .nav-link.active {
-  color: #2470dc;
+  /* color: #2470dc;
+	 */
+	 color: black;
 }
 
 .sidebar-heading {
