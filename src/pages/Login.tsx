@@ -10,7 +10,7 @@ const Login = () => {
 	const submit = (e: SyntheticEvent) => {
 		e.preventDefault();
 
-axios.post('login', {
+		axios.post('login', {
 			email,
 			password
 		});
@@ -18,7 +18,6 @@ axios.post('login', {
 		setRedirect(true);
 	}
 	if (redirect) {
-// console.log(redirect);
 		return <Navigate to="/" />; // Use Navigate component to redirect
 	}
 

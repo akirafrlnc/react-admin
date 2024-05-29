@@ -2,6 +2,7 @@ import axios from 'axios';
 import { User } from '../../models/user';
 import React, { useEffect, useState } from 'react';
 import Wrapper from "../../components/Wrapper";
+import { Link } from 'react-router-dom';
 const Users = () => {
 	const [users, setUsers] = useState([]);
 	const [page, setPage] = useState(1);
@@ -24,7 +25,6 @@ const Users = () => {
 
 			setPage(page + 1);
 		}
-		// console.log(page);
 	}
 
 	const prev = () => {
@@ -33,10 +33,23 @@ const Users = () => {
 			setPage(page - 1);
 		}
 	}
+	const del = async (id: number) => {
+		if (window.confirm('Are you sure you want to delete this record?')) {
+			try {
+				await axios.delete(`users/${id}`);
+				setUsers(users.filter((u: User) => u.id !== id));
+			} catch (error) {
+				console.error("Error deleting user:", error);
+				alert("Failed to delete user");
+			}
+		}
+	}
 
 	return (
 		<Wrapper>
-
+			<div className='pt-3 pb-2 border-bottom mb-3'>
+				<Link to={'/users/create'} className="btn btn-sm btn-outline-secondary">Add</Link>
+			</div>
 			<div className="table-responsive small">
 				<table className="table table-striped table-sm">
 					<thead>
@@ -56,7 +69,13 @@ const Users = () => {
 									<td>{user.first_name} {user.last_name}</td>
 									<td>{user.email}</td>
 									<td>{user.role.name}</td>
-									<td></td>
+									<td>
+										<div className='btn-group mr-2'>
+											<a href="#" className='btn btn-sm btn-outline-secondary'
+												onClick={() => del(user.id)}
+											>Delete</a>
+										</div>
+									</td>
 								</tr>
 							)
 						})}

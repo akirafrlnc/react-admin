@@ -15,6 +15,7 @@ const Wrapper = (props: WrapperProps) => {
 		const checkUser = async () => {
 			try {
 				await axios.get('user');
+				console.log('User is logged in');
 			} catch (e) {
 				setRedirect(true);
 			}
