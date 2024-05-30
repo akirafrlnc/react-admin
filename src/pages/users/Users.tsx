@@ -3,6 +3,8 @@ import { User } from '../../models/user';
 import React, { useEffect, useState } from 'react';
 import Wrapper from "../../components/Wrapper";
 import { Link } from 'react-router-dom';
+import Pagenator from '../../components/Pagenator';
+
 const Users = () => {
 	const [users, setUsers] = useState([]);
 	const [page, setPage] = useState(1);
@@ -20,19 +22,7 @@ const Users = () => {
 		)()
 	}, [page]);
 
-	const next = () => {
-		if (page < lastPage) {
 
-			setPage(page + 1);
-		}
-	}
-
-	const prev = () => {
-		if (page >= 1) {
-
-			setPage(page - 1);
-		}
-	}
 	const del = async (id: number) => {
 		if (window.confirm('Are you sure you want to delete this record?')) {
 			try {
@@ -84,12 +74,8 @@ const Users = () => {
 				</table>
 			</div>
 
-			<nav>
-				<ul>
-					<li><button className='page-link' onClick={prev}>Previous</button></li>
-					<li><button className='page-link' onClick={next}>Next</button></li>
-				</ul>
-			</nav>
+			<Pagenator page={page} lastPage={lastPage} pageChanged={setPage} />
+
 
 		</Wrapper>
 	);

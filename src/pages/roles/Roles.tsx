@@ -17,16 +17,16 @@ const Roles = () => {
 		)();
 	}, []);
 
-const del = async (id: number) => {
-	if (window.confirm('Are you sure you want to delete this role?')) {
-		await axios.delete(`roles/${id}`);
-		setRoles(roles.filter((r: Role) => r.id !== id));
+	const del = async (id: number) => {
+		if (window.confirm('Are you sure you want to delete this role?')) {
+			await axios.delete(`roles/${id}`);
+			setRoles(roles.filter((r: Role) => r.id !== id));
+		}
 	}
-}
 
 	return (
 		<Wrapper>
-						<div className='pt-3 pb-2 border-bottom mb-3'>
+			<div className='pt-3 pb-2 border-bottom mb-3'>
 				<Link to={'/roles/create'} className="btn btn-sm btn-outline-secondary">Add</Link>
 			</div>
 			<div className="table-responsive small">
@@ -45,13 +45,13 @@ const del = async (id: number) => {
 									<td>{role.id}</td>
 									<td>{role.name}</td>
 									<td>
-									<div className='btn-group mr-2'>
+										<div className='btn-group mr-2'>
 											<Link to={`/roles/${role.id}/edit`} className='btn btn-sm btn-outline-secondary'>Edit</Link>
 											<button className='btn btn-sm btn-outline-secondary'
 												onClick={() => del(role.id)}
 											>Delete</button>
 										</div>
-										</td>
+									</td>
 								</tr>
 							)
 						})}
