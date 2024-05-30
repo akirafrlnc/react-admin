@@ -71,9 +71,10 @@ const Users = () => {
 									<td>{user.role.name}</td>
 									<td>
 										<div className='btn-group mr-2'>
-											<a href="#" className='btn btn-sm btn-outline-secondary'
+											<Link to={`/users/${user.id}/edit`} className='btn btn-sm btn-outline-secondary'>Edit</Link>
+											<button className='btn btn-sm btn-outline-secondary'
 												onClick={() => del(user.id)}
-											>Delete</a>
+											>Delete</button>
 										</div>
 									</td>
 								</tr>
@@ -85,8 +86,8 @@ const Users = () => {
 
 			<nav>
 				<ul>
-					<li><a href="#" className='page-link' onClick={prev}>Previous</a></li>
-					<li><a href="#" className='page-link' onClick={next}>Next</a></li>
+					<li><button className='page-link' onClick={prev}>Previous</button></li>
+					<li><button className='page-link' onClick={next}>Next</button></li>
 				</ul>
 			</nav>
 
