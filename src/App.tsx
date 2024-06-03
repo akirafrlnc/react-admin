@@ -5,6 +5,8 @@ import Users from './pages/users/Users';
 import UserCreate from './pages/users/UserCreate';
 import UserEdit from './pages/users/UserEdit';
 import Products from './pages/products/Products';
+import ProductCreate from './pages/products/ProductCreate';
+import ProductEdit from './pages/products/ProductEdit';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -28,6 +30,8 @@ function App() {
 					<Route path={'/roles/create'} element={<RoleCreate />} />
 					<Route path={'/roles/:id/edit'} element={<RoleEdit />} />
 					<Route path={'/products'} element={<Products />} />
+					<Route path={'/products/create'} element={<ProductCreate />} />
+					<Route path={'/products/:id/edit'} element={<ProductEdit />} />
 				</Routes>
 
 			</Router>

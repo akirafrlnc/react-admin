@@ -29,6 +29,7 @@ const Roles = () => {
 			<div className='pt-3 pb-2 border-bottom mb-3'>
 				<Link to={'/roles/create'} className="btn btn-sm btn-outline-secondary">Add</Link>
 			</div>
+			
 			<div className="table-responsive small">
 				<table className="table table-striped table-sm">
 					<thead>

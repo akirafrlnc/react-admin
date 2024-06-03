@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Wrapper from "../../components/Wrapper";
-import { useState, useEffect } from "react";
 import axios from "axios";
 import { Product } from "../../models/product";
 import { Link } from "react-router-dom";
@@ -14,25 +13,28 @@ const Products = () => {
 	useEffect(() => {
 		(
 			async () => {
-				const {data} = await axios.get(`/products/?page=${page}`);
+				const { data } = await axios.get(`/products/?page=${page}`);
 				setProducts(data.data);
 				setLastPage(data.meta.last_page);
 			}
 		)()
 	}, [page]);
 
-const del = async (id: number) => {
-	if(window.confirm('Are you sure you want to delete this product?')) {
-		await axios.delete(`/products/${id}`);
+	const del = async (id: number) => {
+		if (window.confirm('Are you sure you want to delete this product?')) {
+			await axios.delete(`/products/${id}`);
 
-		setProducts(products.filter((p: Product) => p.id !== id));
+			setProducts(products.filter((p: Product) => p.id !== id));
+		}
 	}
-}
 
 
 
 	return (
 		<Wrapper>
+			<div className='pt-3 pb-2 border-bottom mb-3'>
+				<Link to={'/products/create'} className="btn btn-sm btn-outline-secondary">Add</Link>
+			</div>
 			<div className="table-responsive small">
 				<table className="table table-striped table-sm">
 					<thead>
@@ -55,19 +57,19 @@ const del = async (id: number) => {
 									<td>{p.description}</td>
 									<td>{p.price}</td>
 									<td>										<div className='btn-group mr-2'>
-											<Link to={`/roles/${p.id}/edit`} className='btn btn-sm btn-outline-secondary'>Edit</Link>
-											<button className='btn btn-sm btn-outline-secondary'
-												onClick={() => del(p.id)}
-											>Delete</button>
-										</div></td>
+										<Link to={`/products/${p.id}/edit`} className='btn btn-sm btn-outline-secondary'>Edit</Link>
+										<button className='btn btn-sm btn-outline-secondary'
+											onClick={() => del(p.id)}
+										>Delete</button>
+									</div></td>
 								</tr>
-						)
+							)
 						})}
 					</tbody>
 				</table>
 			</div>
 
-<Pagenator page={page} lastPage={lastPage} pageChanged={setPage} />
+			<Pagenator page={page} lastPage={lastPage} pageChanged={setPage} />
 		</Wrapper>
 	)
 }
