@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Dashboard from './pages/Dashboard';
+import Profile from './pages/Profile';
 import Users from './pages/users/Users';
 import UserCreate from './pages/users/UserCreate';
 import UserEdit from './pages/users/UserEdit';
@@ -22,6 +23,7 @@ function App() {
 			<Router>
 				<Routes>
 					<Route path={'/'} element={<Dashboard />} />
+					<Route path={'/profile'} element={<Profile />} />
 					<Route path={'/register'} element={<Register />} />
 					<Route path={'/login'} element={<Login />} />
 					<Route path={'/users'} element={<Users />} />
