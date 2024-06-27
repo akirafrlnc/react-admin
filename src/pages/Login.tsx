@@ -7,10 +7,10 @@ const Login = () => {
 	const [password, setPassword] = useState('');
 	const [redirect, setRedirect] = useState(false);
 
-	const submit = (e: SyntheticEvent) => {
+	const submit = async (e: SyntheticEvent) => {
 		e.preventDefault();
 
-		axios.post('login', {
+		await axios.post('login', {
 			email,
 			password
 		});

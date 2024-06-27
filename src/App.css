@@ -3,7 +3,10 @@
   width: 1rem;
   height: 1rem;
 }
-
+ .row {
+	height: 100vh; /* Set sidebar height to 100% of viewport height */
+	overflow-y: auto;
+}
 /*
  * Sidebar
  */
@@ -13,6 +16,7 @@
     position: -webkit-sticky;
     position: sticky;
     top: 48px;
+
   }
   .navbar-search {
     display: block;

@@ -8,10 +8,6 @@ import { connect } from "react-redux";
 import { setUser } from "../redux/actions/setUserAction";
 import { Dispatch } from "redux";
 
-// interface WrapperProps {
-// 	children: React.ReactNode; // Define children prop type
-// 	setUser: (user: User) => void; // Add setUser function prop
-// }
 
 const Wrapper = (props: any) => {
 	const [redirect, setRedirect] = useState(false);
@@ -38,8 +34,6 @@ const Wrapper = (props: any) => {
 		)();
 	}, []);
 
-	// checkUser();
-	// }, []); // Empty dependency array to run useEffect only once
 
 	if (redirect) {
 		return <Navigate to="/login" />; // Use Navigate to redirect if there's an error

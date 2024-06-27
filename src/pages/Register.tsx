@@ -5,8 +5,6 @@ import { Navigate } from "react-router-dom"; // Import Navigate from react-route
 import axios from 'axios';
 
 class Register extends Component {
-
-
 	first_name = '';
 	last_name = '';
 	email = '';
@@ -15,6 +13,7 @@ class Register extends Component {
 	state = {
 		redirect: false
 	};
+
 	submit = async (e: SyntheticEvent) => {
 		e.preventDefault();
 

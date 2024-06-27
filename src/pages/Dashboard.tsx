@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Wrapper from "../components/Wrapper";
 import * as c3 from 'c3';
-import { useEffect } from 'react';
 import axios from 'axios';
 
 const Dashboard = () => {
